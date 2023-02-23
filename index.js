@@ -1,22 +1,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer")
 const fs = require("fs")
-//const generateMarkdown = require("generateMarkdown.js")
+const generateMarkdown = require("generateMarkdown.js")
 
 
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-## Description
-${data.description}
-
-## Installation
-${data.installation}
-
-## Usage
-${data.usage}
-`;
-}
 
 // TODO: Create an array of questions for user input
 const questions = [{
@@ -39,6 +26,32 @@ const questions = [{
   name: "usage",
   message: "Provide instructions and examples for use. Include screenshots as needed."
 },
+{
+  type: "list",
+  name: "license",
+  message: "What license is needed?",
+  choices: ['None', 'MIT', 'Apache', 'Boost', 'BDS 3-Clause'],
+},
+{
+  type: 'input',
+  name: 'contributions',
+  message: 'Who contributed to this project?'
+},
+{
+  type: 'input',
+  name: 'tests',
+  message: 'How did you test your app?'
+},
+{
+  type: 'input',
+  name: 'github',
+  message: 'What is your GitHub username?'
+},
+{
+  type: 'input',
+  name: 'email',
+  message: 'What is your email address?'
+}
 ];
 
 // TODO: Create a function to write README file
